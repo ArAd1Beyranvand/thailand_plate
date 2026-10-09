@@ -1,0 +1,20 @@
+name: thailand_plate
+description: "Thailand's licence plates for the plate_core library — private, van, pick-up, tricycle, trailer, taxi, tuk-tuk, service, trade, motorcycle and truck plates, themes, a Thai alphabet and an advisory validator."
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plate_core: ^0.11.5
+  plate_alphabet: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
