@@ -67,7 +67,7 @@ abstract final class _Layout {
   // Motorcycle plate, 17.2 × 22 cm.
   static const double bikeWidth = 220, bikeHeight = 172;
   static const double bikePitch = 37, bikeCx = 108;
-  static const double bikeSeriesCy = 41, bikeSerialCy = 138, bikeBox = 77;
+  static const double bikeSeriesCy = 41, bikeSerialCy = 138, bikeBox = 68;
   static const double bikeProvinceCy = 93, bikeProvinceGlyph = 40;
 
   // Truck plate, 22 × 44 cm.
