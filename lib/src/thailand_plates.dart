@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -90,7 +92,10 @@ class _Builder {
   final List<PlateTextGroup> groups = <PlateTextGroup>[];
   final List<PlateLabel> labels = <PlateLabel>[];
 
-  /// [count] cells centred from [firstCx] at [pitch], [box] tall about [cy].
+  /// A field of [count] cells centred from [firstCx] at [pitch], [box] tall
+  /// about [cy]. A typed alphabet is one slot (`minLength` makes it variable,
+  /// with no letter spacing); the series letters are picked one by one, so each
+  /// stays its own slot.
   void run(
     String key,
     PlateAlphabet alphabet,
@@ -98,19 +103,33 @@ class _Builder {
     double firstCx,
     double pitch,
     double cy,
-    double box,
-  ) {
+    double box, {
+    int? minLength,
+  }) {
     final start = slots.length;
-    slots.addAll(
-      plateRegister(
-        alphabet: alphabet,
-        count: count,
-        left: firstCx - pitch / 2,
-        top: cy - box / 2,
-        width: pitch,
-        height: box,
-      ),
-    );
+    final double left = firstCx - pitch / 2, top = cy - box / 2;
+    if (alphabet.input == AlphabetInput.chosen) {
+      slots.addAll(
+        plateRegister(
+          alphabet: alphabet,
+          count: count,
+          left: left,
+          top: top,
+          width: pitch,
+          height: box,
+        ),
+      );
+    } else {
+      slots.add(
+        PlateSlot(
+          alphabet: alphabet,
+          box: PlateBox(left, top, count * pitch, box),
+          length: count,
+          minLength: minLength,
+          spacing: minLength == null ? max(0, pitch - 0.6 * 0.72 * box) : 0,
+        ),
+      );
+    }
     groups.add(
       PlateTextGroup(<int>[
         for (var i = start; i < slots.length; i++) i,
@@ -143,7 +162,8 @@ class _Builder {
 ///   letter and a dash.
 /// * Motorcycle — three rows. Groups `series` (three letters), `serial`.
 /// * Truck — `THAILAND` and a province `code` over `prefix` (two digits), a
-///   dash and `serial` (four digits), the province and the ขส seal beneath.
+///   dash and `serial` (four digits); each typed run is one slot, while the picked
+///   series letters keep a slot apiece, the province and the ขส seal beneath.
 ///
 /// Pair each with its theme in [themeOf].
 abstract final class ThailandPlates {
@@ -253,6 +273,7 @@ abstract final class ThailandPlates {
       trade ? _Layout.tradeDigitPitch : _Layout.digitPitch,
       cy,
       box,
+      minLength: 1,
     );
     if (category.dash) {
       b.text('-', _Layout.tradeDashCx, cy, 40, box, box);
@@ -291,6 +312,7 @@ abstract final class ThailandPlates {
       _Layout.bikePitch,
       _Layout.bikeSerialCy,
       _Layout.bikeBox,
+      minLength: 1,
     );
     b.text(
       province.thai,

@@ -25,37 +25,52 @@ void main() {
   });
 
   /// category id -> (spec, theme, space-separated sample value)
-  final Map<String, (PlateSpec, PlateTheme, String)>
-  cases = <String, (PlateSpec, PlateTheme, String)>{
-    'private': (ThailandPlates.private, ThailandThemes.private, 'ก ท 2 0 5 8'),
-    'van': (ThailandPlates.van, ThailandThemes.van, 'ฮ อ 3 3 8 2'),
-    'pickup': (ThailandPlates.pickup, ThailandThemes.pickup, 'ฒ ย 3 2 0 1'),
-    'tricycle': (
-      ThailandPlates.tricycle,
-      ThailandThemes.tricycle,
-      'ศ ก 2 3 4 5',
-    ),
-    'trailer': (ThailandPlates.trailer, ThailandThemes.trailer, 'ซ ค 1 2 3 4'),
-    'taxi': (ThailandPlates.taxi, ThailandThemes.taxi, 'ท พ 7 4 5 9'),
-    'tukTuk': (ThailandPlates.tukTuk, ThailandThemes.tukTuk, 'ส ก 6 0 7 7'),
-    'tourist': (ThailandPlates.tourist, ThailandThemes.tourist, 'ฌ ข 4 2 6 0'),
-    'trade': (ThailandPlates.trade, ThailandThemes.trade, 'ก 2 3 2 3'),
-    'motorcycle': (
-      ThailandPlates.motorcycle,
-      ThailandThemes.motorcycle,
-      'ข น ษ 6 6 0 1',
-    ),
-    'truckPrivate': (
-      ThailandPlates.truckPrivate,
-      ThailandThemes.truckPrivate,
-      '0 1 9 0 9 3 9 7',
-    ),
-    'truckHired': (
-      ThailandPlates.truckHired,
-      ThailandThemes.truckHired,
-      '4 2 7 0 2 1 5 7',
-    ),
-  };
+  final Map<String, (PlateSpec, PlateTheme, String)> cases =
+      <String, (PlateSpec, PlateTheme, String)>{
+        'private': (ThailandPlates.private, ThailandThemes.private, 'ก ท 2058'),
+        'van': (ThailandPlates.van, ThailandThemes.van, 'ฮ อ 3382'),
+        'pickup': (ThailandPlates.pickup, ThailandThemes.pickup, 'ฒ ย 3201'),
+        'tricycle': (
+          ThailandPlates.tricycle,
+          ThailandThemes.tricycle,
+          'ศ ก 2345',
+        ),
+        'trailer': (ThailandPlates.trailer, ThailandThemes.trailer, 'ซ ค 1234'),
+        'taxi': (ThailandPlates.taxi, ThailandThemes.taxi, 'ท พ 7459'),
+        'tukTuk': (ThailandPlates.tukTuk, ThailandThemes.tukTuk, 'ส ก 6077'),
+        'tourist': (ThailandPlates.tourist, ThailandThemes.tourist, 'ฌ ข 4260'),
+        'private_short_serial': (
+          ThailandPlates.private,
+          ThailandThemes.private,
+          'ก ท 7',
+        ),
+        'trade': (ThailandPlates.trade, ThailandThemes.trade, 'ก 2323'),
+        'motorcycle': (
+          ThailandPlates.motorcycle,
+          ThailandThemes.motorcycle,
+          'ข น ษ 6601',
+        ),
+        'truckPrivate': (
+          ThailandPlates.truckPrivate,
+          ThailandThemes.truckPrivate,
+          '01 90 9397',
+        ),
+        'truckHired': (
+          ThailandPlates.truckHired,
+          ThailandThemes.truckHired,
+          '42 70 2157',
+        ),
+      };
+
+  test('serial is one field of one to four digits', () {
+    final PlateSpec spec = ThailandPlates.private;
+    expect(spec.slots.length, 3);
+    expect(spec.slots[2].minLength, 1);
+    expect(spec.slots[2].length, 4);
+    final PlateController c = PlateController.fromValues(spec, ['ก', 'ท', '7']);
+    expect(c.isCompleted, isTrue);
+    c.dispose();
+  });
 
   for (final MapEntry<String, (PlateSpec, PlateTheme, String)> c
       in cases.entries) {
