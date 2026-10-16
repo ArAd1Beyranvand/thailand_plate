@@ -1,10 +1,10 @@
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
-/// Judges a Thai plate by the registers its spec has, per the article: an
-/// optional leading digit, the series letters, and a serial of one to four
-/// digits without leading zeroes (bus and truck plates print two series digits
-/// and four serial digits, zeroes kept). Reports, never bars a keystroke.
+/// Judges by the registers the spec has: an optional leading digit, the
+/// series letters, and a serial of one to four digits without leading zeroes
+/// (bus and truck plates print two series digits and four serial digits,
+/// zeroes kept). Reports, never bars a keystroke.
 class ThailandValidator extends GatedPlateValidator {
   const ThailandValidator();
 
@@ -18,13 +18,16 @@ class ThailandValidator extends GatedPlateValidator {
   static const String reasonTruckSerial = 'The number is four digits.';
   static const String reasonCode = 'The province code is two digits.';
 
+  static final RegExp _leadDigit = RegExp(r'^[1-9]$');
+  static final RegExp _serial = RegExp(r'^[1-9][0-9]{0,3}$');
+
   @override
   PlateValidation judge(PlateEntry entry) {
     final PlateSpec spec = entry.spec;
     final String lead = entry.group('lead');
     if (spec.indicesOfGroup('lead').isNotEmpty &&
         lead.isNotEmpty &&
-        !RegExp(r'^[1-9]$').hasMatch(lead)) {
+        !_leadDigit.hasMatch(lead)) {
       return const PlateValidation.invalid(reasonLead);
     }
     final int letters = spec.indicesOfGroup('series').length;
@@ -52,7 +55,7 @@ class ThailandValidator extends GatedPlateValidator {
       }
       return const PlateValidation.valid();
     }
-    if (!RegExp(r'^[1-9][0-9]{0,3}$').hasMatch(entry.group('serial'))) {
+    if (!_serial.hasMatch(entry.group('serial'))) {
       return const PlateValidation.invalid(reasonSerial);
     }
     return const PlateValidation.valid();

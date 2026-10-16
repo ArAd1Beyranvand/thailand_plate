@@ -8,45 +8,20 @@ import 'thailand_provinces.dart';
 import 'thailand_themes.dart';
 import 'thailand_usage.dart';
 
-/// Where the ink sits on the current Thai plates, in plate units.
+/// Ink positions on the Thai plates, in plate units: reference photos
+/// flattened to one aspect, measured by projecting ink onto each axis, then
+/// scaled by the real plate size (standard 15x34 cm = 340x150, motorcycle
+/// 17.2x22 cm = 220x172, truck 22x44 cm = 440x220).
 ///
-/// Every reference is a photograph, flattened to 600×264 by the offline stage
-/// (platekit `photos`: 150 × 66 brief units, every plate squeezed to one
-/// aspect) and measured by projecting the ink onto each axis. A brief unit
-/// becomes a plate unit by the factor of the real plate: the 15 × 34 cm plate
-/// is 340 × 150 (×2.267 in x, ×2.273 in y), the 17.2 × 22 cm motorcycle plate
-/// 220 × 172 (×1.467, ×2.606) and the 22 × 44 cm truck plate 440 × 220
-/// (×2.933, ×3.333).
+/// Rows are limited by the canvas, not the measurement. The standard serial's
+/// 65-high ink wants a 118 box on a 150 plate whose serial centre is 48, so
+/// the box is held to 96 and the ink is ~80% of reference. The truck's digits
+/// are held to a 150 box because the 58 pitch squeezes anything taller. The
+/// trailer's photo is fitted poorly, so it uses the standard layout.
 ///
-/// Measured ink, as target for the goldens:
-///
-/// * Standard (`License_plate_of_Thailand_003`): serial row y 15.4–80.5
-///   (cy 48), letters x 36–127, digits x 168–325, province y 108–134 and
-///   centred on x 170. A leading digit (`Green_on_white…_02`, `2ฒย 3201`)
-///   sits at x 16–50, its two letters at x 60–165 and the digits from x 171.
-/// * Trade (`TargaThai_NeroSuRosso`): letter x 35–70, dash x 79–111, digits
-///   x 129–307, row y 10–97, province y 120–139.
-/// * Motorcycle (`TargaMotoRayong`): series y 19.5–62 over x 52–164, province
-///   y 82–104, serial y 117–160 over x 53–164.
-/// * Truck (`Licenceplate_Thailand`): `THAILAND` x 110–340, y 15–42, the
-///   code x 364–405; serial y 53–150, `70` x 32–135, dash x 139–167, digits
-///   x 180–411; province y 173–196 and the seal at x 33–58.
-///
-/// Rows are limited by the canvas, not by the measurement. The standard
-/// reference's serial is 65 high, which wants a 118 box on a 150 plate whose
-/// serial centre is 48: the box is held to 96, so the ink is ~80% of the
-/// reference. The truck's digits are held to a 150 box because the 58 pitch
-/// squeezes anything taller. Photos of the private truck, the motorcycle and
-/// the trailer are lit or fitted poorly: the trailer's digits end at x 257
-/// where the standard's end at 325; the standard layout is used for it.
-///
-/// Not implemented: the pictorial plate (`Chiang_Mai_auction…`, a printed
-/// artwork, not a layout), the inter-province taxi plate, the hired
-/// motorcycle, the diplomatic plate (11 × 38.7 cm, `ท 01 - 1234`), the
-/// royal, police and military plates and the international-travel plate: the
-/// article gives each in words and no photograph to measure. The tax-paid
-/// label is a windshield sticker. No flag is printed on any photographed
-/// plate, so no icon is placed. The article lists nothing Israel-specific.
+/// Not implemented, for lack of a photograph to measure: the pictorial,
+/// inter-province taxi, hired motorcycle, diplomatic, royal, police,
+/// military and international-travel plates.
 abstract final class _Layout {
   // Standard plate, 15 × 34 cm.
   static const double width = 340, height = 150;
@@ -92,10 +67,9 @@ class _Builder {
   final List<PlateTextGroup> groups = <PlateTextGroup>[];
   final List<PlateLabel> labels = <PlateLabel>[];
 
-  /// A field of [count] cells centred from [firstCx] at [pitch], [box] tall
-  /// about [cy]. A typed alphabet is one slot (`minLength` makes it variable,
-  /// with no letter spacing); the series letters are picked one by one, so each
-  /// stays its own slot.
+  /// [count] cells from [firstCx] at [pitch], [box] tall about [cy]. A typed
+  /// alphabet is one slot (`minLength` makes it variable, with no letter
+  /// spacing); chosen letters are picked one by one, so each stays its own slot.
   void run(
     String key,
     PlateAlphabet alphabet,
@@ -154,16 +128,14 @@ class _Builder {
   );
 }
 
-/// Thailand's licence plates: three designs, twelve categories.
+/// Three designs, twelve categories.
 ///
-/// * Standard — series letters and up to four digits, the province beneath.
-///   Groups `lead` (one digit, Bangkok's `1กข 1234`; only with
-///   `leadingDigit`), `series`, `serial`. The trade plate has one series
-///   letter and a dash.
-/// * Motorcycle — three rows. Groups `series` (three letters), `serial`.
-/// * Truck — `THAILAND` and a province `code` over `prefix` (two digits), a
-///   dash and `serial` (four digits); each typed run is one slot, while the picked
-///   series letters keep a slot apiece, the province and the ขส seal beneath.
+/// * Standard: groups `lead` (one digit, only with `leadingDigit`), `series`,
+///   `serial`, the province beneath. The trade plate has one series letter and
+///   a dash.
+/// * Motorcycle: three rows. Groups `series` (three letters), `serial`.
+/// * Truck: `THAILAND` and a province `code` over `prefix` (two digits), a
+///   dash and `serial` (four digits), the province and the ขส seal beneath.
 ///
 /// Pair each with its theme in [themeOf].
 abstract final class ThailandPlates {

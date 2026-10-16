@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-/// Which of the three layouts a category is printed in. Closed: the library
-/// owns the layouts; new categories are new [ThailandCategory] values.
+/// The three layouts a category is printed in; closed, as the library owns
+/// them.
 enum ThailandDesign {
   /// Series letters and up to four digits over the province: the 15 × 34 cm
   /// plate of cars, vans, pick-ups, tricycles, trailers and taxis.
@@ -29,7 +29,6 @@ class ThailandCategory {
   /// Stable identifier, used in spec ids.
   final String id;
 
-  /// English name, as the article gives it.
   final String name;
 
   final ThailandDesign design;

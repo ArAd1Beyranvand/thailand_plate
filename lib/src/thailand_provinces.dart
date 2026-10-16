@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 
 /// A registering province: the Thai name printed under the number.
 ///
-/// Seventy-seven provinces, each by its English name and the name the plates
-/// print. Betong, the one district with its own registrar, is not listed.
+/// Betong, the one district with its own registrar, is not listed.
 @immutable
 class ThailandProvince {
   const ThailandProvince._(this.id, this.name, this.thai);
@@ -11,10 +10,8 @@ class ThailandProvince {
   /// Stable identifier, used in spec ids.
   final String id;
 
-  /// English name.
   final String name;
 
-  /// The Thai name on the plate.
   final String thai;
 
   static const ThailandProvince amnatCharoen = ThailandProvince._(

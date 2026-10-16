@@ -4,8 +4,8 @@ import 'package:plate_core/plate_core.dart';
 import 'thailand_colors.dart';
 
 /// One ink on one field, the frame in the ink. Frame widths are not measured:
-/// the flattened photos show a clear outline only on the service-vehicle,
-/// tuk-tuk and truck plates, so the rest print a hairline.
+/// only the service-vehicle, tuk-tuk and truck plates show a clear outline,
+/// so the rest print a hairline.
 abstract final class ThailandThemes {
   static final PlateTheme private = _ink(
     ThailandColors.white,
