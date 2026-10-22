@@ -20,29 +20,13 @@ class ThailandProvince {
     'อำนาจเจริญ',
   );
 
-  static const ThailandProvince angThong = ThailandProvince._(
-    'ang_thong',
-    'Ang Thong',
-    'อ่างทอง',
-  );
+  static const ThailandProvince angThong = ThailandProvince._('ang_thong', 'Ang Thong', 'อ่างทอง');
 
-  static const ThailandProvince bangkok = ThailandProvince._(
-    'bangkok',
-    'Bangkok',
-    'กรุงเทพมหานคร',
-  );
+  static const ThailandProvince bangkok = ThailandProvince._('bangkok', 'Bangkok', 'กรุงเทพมหานคร');
 
-  static const ThailandProvince buengKan = ThailandProvince._(
-    'bueng_kan',
-    'Bueng Kan',
-    'บึงกาฬ',
-  );
+  static const ThailandProvince buengKan = ThailandProvince._('bueng_kan', 'Bueng Kan', 'บึงกาฬ');
 
-  static const ThailandProvince buriram = ThailandProvince._(
-    'buriram',
-    'Buriram',
-    'บุรีรัมย์',
-  );
+  static const ThailandProvince buriram = ThailandProvince._('buriram', 'Buriram', 'บุรีรัมย์');
 
   static const ThailandProvince chachoengsao = ThailandProvince._(
     'chachoengsao',
@@ -50,11 +34,7 @@ class ThailandProvince {
     'ฉะเชิงเทรา',
   );
 
-  static const ThailandProvince chaiNat = ThailandProvince._(
-    'chai_nat',
-    'Chai Nat',
-    'ชัยนาท',
-  );
+  static const ThailandProvince chaiNat = ThailandProvince._('chai_nat', 'Chai Nat', 'ชัยนาท');
 
   static const ThailandProvince chaiyaphum = ThailandProvince._(
     'chaiyaphum',
@@ -80,23 +60,11 @@ class ThailandProvince {
     'เชียงราย',
   );
 
-  static const ThailandProvince chonburi = ThailandProvince._(
-    'chonburi',
-    'Chonburi',
-    'ชลบุรี',
-  );
+  static const ThailandProvince chonburi = ThailandProvince._('chonburi', 'Chonburi', 'ชลบุรี');
 
-  static const ThailandProvince chumphon = ThailandProvince._(
-    'chumphon',
-    'Chumphon',
-    'ชุมพร',
-  );
+  static const ThailandProvince chumphon = ThailandProvince._('chumphon', 'Chumphon', 'ชุมพร');
 
-  static const ThailandProvince kalasin = ThailandProvince._(
-    'kalasin',
-    'Kalasin',
-    'กาฬสินธุ์',
-  );
+  static const ThailandProvince kalasin = ThailandProvince._('kalasin', 'Kalasin', 'กาฬสินธุ์');
 
   static const ThailandProvince kamphaengPhet = ThailandProvince._(
     'kamphaeng_phet',
@@ -110,41 +78,17 @@ class ThailandProvince {
     'กาญจนบุรี',
   );
 
-  static const ThailandProvince khonKaen = ThailandProvince._(
-    'khon_kaen',
-    'Khon Kaen',
-    'ขอนแก่น',
-  );
+  static const ThailandProvince khonKaen = ThailandProvince._('khon_kaen', 'Khon Kaen', 'ขอนแก่น');
 
-  static const ThailandProvince krabi = ThailandProvince._(
-    'krabi',
-    'Krabi',
-    'กระบี่',
-  );
+  static const ThailandProvince krabi = ThailandProvince._('krabi', 'Krabi', 'กระบี่');
 
-  static const ThailandProvince lampang = ThailandProvince._(
-    'lampang',
-    'Lampang',
-    'ลำปาง',
-  );
+  static const ThailandProvince lampang = ThailandProvince._('lampang', 'Lampang', 'ลำปาง');
 
-  static const ThailandProvince lamphun = ThailandProvince._(
-    'lamphun',
-    'Lamphun',
-    'ลำพูน',
-  );
+  static const ThailandProvince lamphun = ThailandProvince._('lamphun', 'Lamphun', 'ลำพูน');
 
-  static const ThailandProvince loei = ThailandProvince._(
-    'loei',
-    'Loei',
-    'เลย',
-  );
+  static const ThailandProvince loei = ThailandProvince._('loei', 'Loei', 'เลย');
 
-  static const ThailandProvince lopburi = ThailandProvince._(
-    'lopburi',
-    'Lopburi',
-    'ลพบุรี',
-  );
+  static const ThailandProvince lopburi = ThailandProvince._('lopburi', 'Lopburi', 'ลพบุรี');
 
   static const ThailandProvince maeHongSon = ThailandProvince._(
     'mae_hong_son',
@@ -158,11 +102,7 @@ class ThailandProvince {
     'มหาสารคาม',
   );
 
-  static const ThailandProvince mukdahan = ThailandProvince._(
-    'mukdahan',
-    'Mukdahan',
-    'มุกดาหาร',
-  );
+  static const ThailandProvince mukdahan = ThailandProvince._('mukdahan', 'Mukdahan', 'มุกดาหาร');
 
   static const ThailandProvince nakhonNayok = ThailandProvince._(
     'nakhon_nayok',
@@ -214,11 +154,7 @@ class ThailandProvince {
     'หนองบัวลำภู',
   );
 
-  static const ThailandProvince nongKhai = ThailandProvince._(
-    'nong_khai',
-    'Nong Khai',
-    'หนองคาย',
-  );
+  static const ThailandProvince nongKhai = ThailandProvince._('nong_khai', 'Nong Khai', 'หนองคาย');
 
   static const ThailandProvince nonthaburi = ThailandProvince._(
     'nonthaburi',
@@ -232,17 +168,9 @@ class ThailandProvince {
     'ปทุมธานี',
   );
 
-  static const ThailandProvince pattani = ThailandProvince._(
-    'pattani',
-    'Pattani',
-    'ปัตตานี',
-  );
+  static const ThailandProvince pattani = ThailandProvince._('pattani', 'Pattani', 'ปัตตานี');
 
-  static const ThailandProvince phangNga = ThailandProvince._(
-    'phang_nga',
-    'Phang Nga',
-    'พังงา',
-  );
+  static const ThailandProvince phangNga = ThailandProvince._('phang_nga', 'Phang Nga', 'พังงา');
 
   static const ThailandProvince phatthalung = ThailandProvince._(
     'phatthalung',
@@ -250,11 +178,7 @@ class ThailandProvince {
     'พัทลุง',
   );
 
-  static const ThailandProvince phayao = ThailandProvince._(
-    'phayao',
-    'Phayao',
-    'พะเยา',
-  );
+  static const ThailandProvince phayao = ThailandProvince._('phayao', 'Phayao', 'พะเยา');
 
   static const ThailandProvince phetchabun = ThailandProvince._(
     'phetchabun',
@@ -268,11 +192,7 @@ class ThailandProvince {
     'เพชรบุรี',
   );
 
-  static const ThailandProvince phichit = ThailandProvince._(
-    'phichit',
-    'Phichit',
-    'พิจิตร',
-  );
+  static const ThailandProvince phichit = ThailandProvince._('phichit', 'Phichit', 'พิจิตร');
 
   static const ThailandProvince phitsanulok = ThailandProvince._(
     'phitsanulok',
@@ -286,17 +206,9 @@ class ThailandProvince {
     'พระนครศรีอยุธยา',
   );
 
-  static const ThailandProvince phrae = ThailandProvince._(
-    'phrae',
-    'Phrae',
-    'แพร่',
-  );
+  static const ThailandProvince phrae = ThailandProvince._('phrae', 'Phrae', 'แพร่');
 
-  static const ThailandProvince phuket = ThailandProvince._(
-    'phuket',
-    'Phuket',
-    'ภูเก็ต',
-  );
+  static const ThailandProvince phuket = ThailandProvince._('phuket', 'Phuket', 'ภูเก็ต');
 
   static const ThailandProvince prachinburi = ThailandProvince._(
     'prachinburi',
@@ -310,11 +222,7 @@ class ThailandProvince {
     'ประจวบคีรีขันธ์',
   );
 
-  static const ThailandProvince ranong = ThailandProvince._(
-    'ranong',
-    'Ranong',
-    'ระนอง',
-  );
+  static const ThailandProvince ranong = ThailandProvince._('ranong', 'Ranong', 'ระนอง');
 
   static const ThailandProvince ratchaburi = ThailandProvince._(
     'ratchaburi',
@@ -322,23 +230,11 @@ class ThailandProvince {
     'ราชบุรี',
   );
 
-  static const ThailandProvince rayong = ThailandProvince._(
-    'rayong',
-    'Rayong',
-    'ระยอง',
-  );
+  static const ThailandProvince rayong = ThailandProvince._('rayong', 'Rayong', 'ระยอง');
 
-  static const ThailandProvince roiEt = ThailandProvince._(
-    'roi_et',
-    'Roi Et',
-    'ร้อยเอ็ด',
-  );
+  static const ThailandProvince roiEt = ThailandProvince._('roi_et', 'Roi Et', 'ร้อยเอ็ด');
 
-  static const ThailandProvince saKaeo = ThailandProvince._(
-    'sa_kaeo',
-    'Sa Kaeo',
-    'สระแก้ว',
-  );
+  static const ThailandProvince saKaeo = ThailandProvince._('sa_kaeo', 'Sa Kaeo', 'สระแก้ว');
 
   static const ThailandProvince sakonNakhon = ThailandProvince._(
     'sakon_nakhon',
@@ -364,17 +260,9 @@ class ThailandProvince {
     'สมุทรสงคราม',
   );
 
-  static const ThailandProvince saraburi = ThailandProvince._(
-    'saraburi',
-    'Saraburi',
-    'สระบุรี',
-  );
+  static const ThailandProvince saraburi = ThailandProvince._('saraburi', 'Saraburi', 'สระบุรี');
 
-  static const ThailandProvince satun = ThailandProvince._(
-    'satun',
-    'Satun',
-    'สตูล',
-  );
+  static const ThailandProvince satun = ThailandProvince._('satun', 'Satun', 'สตูล');
 
   static const ThailandProvince singBuri = ThailandProvince._(
     'sing_buri',
@@ -382,23 +270,11 @@ class ThailandProvince {
     'สิงห์บุรี',
   );
 
-  static const ThailandProvince sisaket = ThailandProvince._(
-    'sisaket',
-    'Sisaket',
-    'ศรีสะเกษ',
-  );
+  static const ThailandProvince sisaket = ThailandProvince._('sisaket', 'Sisaket', 'ศรีสะเกษ');
 
-  static const ThailandProvince songkhla = ThailandProvince._(
-    'songkhla',
-    'Songkhla',
-    'สงขลา',
-  );
+  static const ThailandProvince songkhla = ThailandProvince._('songkhla', 'Songkhla', 'สงขลา');
 
-  static const ThailandProvince sukhothai = ThailandProvince._(
-    'sukhothai',
-    'Sukhothai',
-    'สุโขทัย',
-  );
+  static const ThailandProvince sukhothai = ThailandProvince._('sukhothai', 'Sukhothai', 'สุโขทัย');
 
   static const ThailandProvince suphanBuri = ThailandProvince._(
     'suphan_buri',
@@ -412,25 +288,13 @@ class ThailandProvince {
     'สุราษฎร์ธานี',
   );
 
-  static const ThailandProvince surin = ThailandProvince._(
-    'surin',
-    'Surin',
-    'สุรินทร์',
-  );
+  static const ThailandProvince surin = ThailandProvince._('surin', 'Surin', 'สุรินทร์');
 
   static const ThailandProvince tak = ThailandProvince._('tak', 'Tak', 'ตาก');
 
-  static const ThailandProvince trang = ThailandProvince._(
-    'trang',
-    'Trang',
-    'ตรัง',
-  );
+  static const ThailandProvince trang = ThailandProvince._('trang', 'Trang', 'ตรัง');
 
-  static const ThailandProvince trat = ThailandProvince._(
-    'trat',
-    'Trat',
-    'ตราด',
-  );
+  static const ThailandProvince trat = ThailandProvince._('trat', 'Trat', 'ตราด');
 
   static const ThailandProvince ubonRatchathani = ThailandProvince._(
     'ubon_ratchathani',
@@ -456,17 +320,9 @@ class ThailandProvince {
     'อุตรดิตถ์',
   );
 
-  static const ThailandProvince yala = ThailandProvince._(
-    'yala',
-    'Yala',
-    'ยะลา',
-  );
+  static const ThailandProvince yala = ThailandProvince._('yala', 'Yala', 'ยะลา');
 
-  static const ThailandProvince yasothon = ThailandProvince._(
-    'yasothon',
-    'Yasothon',
-    'ยโสธร',
-  );
+  static const ThailandProvince yasothon = ThailandProvince._('yasothon', 'Yasothon', 'ยโสธร');
 
   static const List<ThailandProvince> values = <ThailandProvince>[
     amnatCharoen,

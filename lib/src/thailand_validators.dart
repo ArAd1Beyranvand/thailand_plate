@@ -25,18 +25,12 @@ class ThailandValidator extends GatedPlateValidator {
   PlateValidation judge(PlateEntry entry) {
     final PlateSpec spec = entry.spec;
     final String lead = entry.group('lead');
-    if (spec.indicesOfGroup('lead').isNotEmpty &&
-        lead.isNotEmpty &&
-        !_leadDigit.hasMatch(lead)) {
+    if (spec.indicesOfGroup('lead').isNotEmpty && lead.isNotEmpty && !_leadDigit.hasMatch(lead)) {
       return const PlateValidation.invalid(reasonLead);
     }
     final int letters = spec.indicesOfGroup('series').length;
     if (letters > 0) {
-      final List<String> series = entry
-          .group('series')
-          .runes
-          .map(String.fromCharCode)
-          .toList();
+      final List<String> series = entry.group('series').runes.map(String.fromCharCode).toList();
       if (series.length != letters ||
           !series.every(ThailandAlphabets.letters.characters.contains)) {
         return const PlateValidation.invalid(reasonSeries);

@@ -7,35 +7,17 @@ import 'thailand_colors.dart';
 /// only the service-vehicle, tuk-tuk and truck plates show a clear outline,
 /// so the rest print a hairline.
 abstract final class ThailandThemes {
-  static final PlateTheme private = _ink(
-    ThailandColors.white,
-    ThailandColors.black,
-  );
+  static final PlateTheme private = _ink(ThailandColors.white, ThailandColors.black);
 
-  static final PlateTheme van = _ink(
-    ThailandColors.vanField,
-    ThailandColors.blue,
-  );
+  static final PlateTheme van = _ink(ThailandColors.vanField, ThailandColors.blue);
 
-  static final PlateTheme pickup = _ink(
-    ThailandColors.pickupField,
-    ThailandColors.green,
-  );
+  static final PlateTheme pickup = _ink(ThailandColors.pickupField, ThailandColors.green);
 
-  static final PlateTheme tricycle = _ink(
-    ThailandColors.tricycleField,
-    ThailandColors.red,
-  );
+  static final PlateTheme tricycle = _ink(ThailandColors.tricycleField, ThailandColors.red);
 
-  static final PlateTheme trailer = _ink(
-    ThailandColors.orange,
-    ThailandColors.charcoal,
-  );
+  static final PlateTheme trailer = _ink(ThailandColors.orange, ThailandColors.charcoal);
 
-  static final PlateTheme taxi = _ink(
-    ThailandColors.taxiYellow,
-    ThailandColors.taxiInk,
-  );
+  static final PlateTheme taxi = _ink(ThailandColors.taxiYellow, ThailandColors.taxiInk);
 
   static final PlateTheme tukTuk = _ink(
     ThailandColors.amber,
@@ -49,15 +31,9 @@ abstract final class ThailandThemes {
     framed: true,
   );
 
-  static final PlateTheme trade = _ink(
-    ThailandColors.tradeRed,
-    ThailandColors.tradeInk,
-  );
+  static final PlateTheme trade = _ink(ThailandColors.tradeRed, ThailandColors.tradeInk);
 
-  static final PlateTheme motorcycle = _ink(
-    ThailandColors.white,
-    ThailandColors.black,
-  );
+  static final PlateTheme motorcycle = _ink(ThailandColors.white, ThailandColors.black);
 
   static final PlateTheme truckPrivate = _ink(
     ThailandColors.white,
@@ -72,11 +48,10 @@ abstract final class ThailandThemes {
   );
 }
 
-PlateTheme _ink(Color field, Color ink, {bool framed = false}) =>
-    PlateTheme.monochrome(
-      field: field,
-      ink: ink,
-      inactive: ThailandColors.inactive,
-      borderWidthRatio: framed ? 0.02 : 0.008,
-      plateRadiusRatio: 0.05,
-    );
+PlateTheme _ink(Color field, Color ink, {bool framed = false}) => PlateTheme.monochrome(
+  field: field,
+  ink: ink,
+  inactive: ThailandColors.inactive,
+  borderWidthRatio: framed ? 0.02 : 0.008,
+  plateRadiusRatio: 0.05,
+);

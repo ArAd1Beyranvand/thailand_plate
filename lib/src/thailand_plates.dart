@@ -104,28 +104,18 @@ class _Builder {
         ),
       );
     }
-    groups.add(
-      PlateTextGroup(<int>[
-        for (var i = start; i < slots.length; i++) i,
-      ], key: key),
-    );
+    groups.add(PlateTextGroup(<int>[for (var i = start; i < slots.length; i++) i], key: key));
   }
 
   /// Printed text centred on ([cx], [cy]).
-  void text(
-    String text,
-    double cx,
-    double cy,
-    double width,
-    double height,
-    double glyph,
-  ) => labels.add(
-    PlateLabel(
-      text: text,
-      box: PlateBox(cx - width / 2, cy - height / 2, width, height),
-      glyphHeight: glyph,
-    ),
-  );
+  void text(String text, double cx, double cy, double width, double height, double glyph) =>
+      labels.add(
+        PlateLabel(
+          text: text,
+          box: PlateBox(cx - width / 2, cy - height / 2, width, height),
+          glyphHeight: glyph,
+        ),
+      );
 }
 
 /// Three designs, twelve categories.
@@ -186,22 +176,19 @@ abstract final class ThailandPlates {
   static PlateSpec get truckHired => of(ThailandCategory.truckHired);
 
   /// Every category, registered in Bangkok.
-  static List<PlateSpec> get all => <PlateSpec>[
-    for (final c in ThailandCategory.values) of(c),
-  ];
+  static List<PlateSpec> get all => <PlateSpec>[for (final c in ThailandCategory.values) of(c)];
 
-  static PlateSpec _spec(String id, _Builder b, double width, double height) =>
-      PlateSpec(
-        id: id,
-        country: ThailandCountry.thailand,
-        canvasWidth: width,
-        canvasHeight: height,
-        panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
-        noPanel: true,
-        slots: b.slots,
-        labels: b.labels,
-        textGroups: b.groups,
-      );
+  static PlateSpec _spec(String id, _Builder b, double width, double height) => PlateSpec(
+    id: id,
+    country: ThailandCountry.thailand,
+    canvasWidth: width,
+    canvasHeight: height,
+    panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
+    noPanel: true,
+    slots: b.slots,
+    labels: b.labels,
+    textGroups: b.groups,
+  );
 
   static PlateSpec _standard(
     String id,
@@ -214,26 +201,14 @@ abstract final class ThailandPlates {
     final box = trade ? _Layout.tradeBox : _Layout.serialBox;
     final b = _Builder();
     if (lead) {
-      b.run(
-        'lead',
-        ThailandAlphabets.digits,
-        1,
-        _Layout.leadCx,
-        _Layout.leadPitch,
-        cy,
-        box,
-      );
+      b.run('lead', ThailandAlphabets.digits, 1, _Layout.leadCx, _Layout.leadPitch, cy, box);
     }
     b.run(
       'series',
       ThailandAlphabets.letters,
       category.seriesLetters,
-      trade
-          ? _Layout.tradeLetterCx
-          : (lead ? _Layout.ledLettersCx : _Layout.lettersCx),
-      trade
-          ? _Layout.tradePitch
-          : (lead ? _Layout.ledLettersPitch : _Layout.letterPitch),
+      trade ? _Layout.tradeLetterCx : (lead ? _Layout.ledLettersCx : _Layout.lettersCx),
+      trade ? _Layout.tradePitch : (lead ? _Layout.ledLettersPitch : _Layout.letterPitch),
       cy,
       box,
     );
@@ -261,11 +236,7 @@ abstract final class ThailandPlates {
     return _spec(id, b, _Layout.width, _Layout.height);
   }
 
-  static PlateSpec _motorcycle(
-    String id,
-    ThailandCategory category,
-    ThailandProvince province,
-  ) {
+  static PlateSpec _motorcycle(String id, ThailandCategory category, ThailandProvince province) {
     final b = _Builder();
     b.run(
       'series',
@@ -350,14 +321,7 @@ abstract final class ThailandPlates {
       52,
       _Layout.truckProvinceGlyph,
     );
-    b.text(
-      'ขส',
-      _Layout.truckSealCx,
-      _Layout.truckProvinceCy,
-      50,
-      44,
-      _Layout.truckSealGlyph,
-    );
+    b.text('ขส', _Layout.truckSealCx, _Layout.truckProvinceCy, 50, 44, _Layout.truckSealGlyph);
     return _spec(id, b, _Layout.truckWidth, _Layout.truckHeight);
   }
 }
