@@ -1,7 +1,7 @@
 name: thailand_plate
 description: "Thailand's licence plates for the plate_core library — private, van, pick-up, tricycle, trailer, taxi, tuk-tuk, service, trade, motorcycle and truck plates, themes, a Thai alphabet and an advisory validator."
 version: 0.1.0
-publish_to: none
+repository: https://github.com/ArAd1Beyranvand/thailand_plate
 resolution: workspace
 
 environment:
